@@ -1,6 +1,7 @@
 import Piece from './piece';
 import Player from '../player';
 import Board from '../board';
+import Square from "../square";
 
 export default class King extends Piece {
     public constructor(player: Player) {
@@ -8,6 +9,9 @@ export default class King extends Piece {
     }
 
     public getAvailableMoves(board: Board) {
-        return new Array(0);
+        let straightMoves = this.getStraightMoves(board,1)
+        let diagonalMoves = this.getDiagonalMoves(board,1)
+        return straightMoves.concat(diagonalMoves);
+
     }
 }

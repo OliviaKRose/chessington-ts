@@ -31,6 +31,14 @@ export default class Board {
         throw new Error('The supplied piece is not on the board');
     }
 
+    public isSquareOccupied(square: Square){
+        let isOccupied = true
+        if(this.getPiece(square) === undefined){
+            isOccupied = false
+        }
+        return isOccupied;
+    }
+
     public movePiece(fromSquare: Square, toSquare: Square) {
         const movingPiece = this.getPiece(fromSquare);        
         if (!!movingPiece && movingPiece.player === this.currentPlayer) {
